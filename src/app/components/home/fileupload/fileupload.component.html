@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-8">
+    <label class="btn btn-default p-0">
+      <input type="file" accept="image/jpeg" (change)="selectFile($event)" />
+    </label>
+  </div>
+</div>
+
+<div *ngIf="currentFile" class="progress my-3">
+  <div class="progress-bar progress-bar-info" role="progressbar" attr.aria-valuenow="{{ progress }}" aria-valuemin="0"
+    aria-valuemax="100" [ngStyle]="{ width: progress + '%' }">
+    {{ progress }}%
+  </div>
+</div>
+
+<div *ngIf="message" class="alert alert-secondary" role="alert">
+  {{ message }}
+</div>
+
+<div class="card mt-3">
+  <div style="height:150px">
+    <img id="image" style="height:100%;display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;" [src]="imageSrc || '../../assets/noimage.jpg'" alt="no image found">
+  </div>
+</div>
+
+<div class="footer d-flex" style="flex-direction: row;
+padding-top: 15px;
+justify-content: flex-end;">
+  <button type="button" (click)="onNoClick()" class="btn btn-primary px-4 float-right">Cancel</button>
+  <button class="btn btn-primary px-4 float-right"  [disabled]="!selectedFiles" (click)="upload()"
+  style="margin-left: 15px;">
+    Upload
+  </button>
+</div>

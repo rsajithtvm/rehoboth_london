@@ -1,0 +1,11 @@
+// @import "./variables.scss";
+
+/* Add application styles & imports to this file! */
+// @import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+// @import url('../node_modules/simple-keyboard/build/css/index.css');
+// body{
+  
+//   background-color: brown;
+// }
+// Import your custom overrides
+@import "overrides.scss";

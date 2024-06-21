@@ -1,0 +1,46 @@
+<section class="hero-section d-flex justify-content-center">
+  <div class="container" style="display: flex; justify-content: center; align-items: center; width: 500px;" [ngClass]="{submitted: submitted}">
+      <div class="row">
+
+          <div class="col-lg-12 col-12 mx-auto">
+              <div class="custom-form member-form">
+                  <h2 class="hero-title text-center mb-4 pb-2">Registration Form</h2>
+
+                  <form  [formGroup]="form" class="row">
+                      <div class="col-lg-12 col-md-12 col-12">
+                          <div class="form-floating">
+                              <input type="text" name="username" id="username" class="form-control"
+                                  placeholder="User Name" required formControlName="username">
+
+                              <label for="floatingInput">User Name</label>
+                          </div>
+                      </div>
+
+                      <div class="col-lg-12 col-md-12 col-12">
+                          <div class="form-floating">
+                              <input type="password" name="password" id="password" class="form-control"
+                                  placeholder="Password" formControlName="password">
+
+                              <label for="floatingInput">Password</label>
+                          </div>
+                      </div>
+
+                      <div class="col-lg-6 col-10 mx-auto submit-btn" style="margin-top: 50px">
+                          <button class="form-control"  (click)="onSubmit()">Save</button>
+                      </div>
+                  </form>
+
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+  <div class="video-wrap">
+      <video autoplay="true" loop="true" muted="true" class="custom-video" poster="">
+          <source src="../../../../assets/videos/video.mp4" type="video/mp4">
+
+          Your browser does not support the video tag.
+      </video>
+  </div>
+</section>
