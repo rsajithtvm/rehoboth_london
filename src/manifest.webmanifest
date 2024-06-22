@@ -1,6 +1,6 @@
 {
-  "name": "rehoboth-frontend",
-  "short_name": "rehoboth-frontend",
+  "name": "rehoboth",
+  "short_name": "rehoboth",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",

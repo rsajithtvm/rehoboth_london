@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000/.netlify/functions/api/'
+  apiUrl: 'https://rehobothlondonapi.netlify.app/.netlify/functions/api/'
 };
 
 /*

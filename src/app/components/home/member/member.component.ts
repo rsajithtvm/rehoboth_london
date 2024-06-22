@@ -4,6 +4,7 @@ import {trigger, state, style, animate, transition, stagger, query } from "@angu
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MemberService } from 'src/app/services/member.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-member',
@@ -35,6 +36,7 @@ export class MemberComponent implements OnInit {
     editData: any = {};
     memberList: Array<any> = [];
     fileName = "";
+    disable = false;
     // @HostListener('window:resize', ['$event']) 
     // Resize() {
     //   let container = document.querySelector('.mat-dialog-container');
@@ -48,9 +50,10 @@ export class MemberComponent implements OnInit {
     constructor(
       // public dialogRef: MatDialogRef<PostDialogComponent>,
       // @Inject(MAT_DIALOG_DATA) public data: any,
-      public dataService: MemberService,
+      public memberservice: MemberService,
       private fb: FormBuilder,
-      private http: HttpClient
+      private http: HttpClient,
+      private router: Router
     ) {
       // let container = document.querySelector('.mat-dialog-container');
       // if (window.innerWidth <= 575) {
@@ -65,6 +68,10 @@ export class MemberComponent implements OnInit {
     }
 
     ngOnInit() {
+      this.memberservice.getMembers().subscribe(res => {
+        debugger
+        this.memberList = res;
+      });
       this.form = this.fb.group({
         fname: [this.editData.fname || "", [Validators.required]],
         lname: [this.editData.lname || ""],
@@ -111,14 +118,25 @@ export class MemberComponent implements OnInit {
           details: this.form.get("details").value || "",
           requests: this.form.get("requests").value || "",
           dateofjoin:
-            new Date(this.form.get("dateofjoin").value).toISOString() || "",
+          new Date(this.form.get("dateofjoin").value).toISOString() || "",
         }
-        this.dataService.saveMemberData(data).subscribe(res=>{
-
+        let exist = this.memberList.some(el=> data.phone == el.phone && data.fname == el.fname && data.lname == el.lname);
+        if (exist) {
+          alert('Member already registered.');
+          return;
+        }
+        this.disable = true;
+        this.memberservice.saveMemberData(data).subscribe(res=>{
+          alert('Successfully Registered. Thank you for Registering.');
+          setTimeout(() => {
+            this.disable = false;
+            this.router.navigate(['/']);
+          }, 500);
         });
       } else {
         this.form.markAsTouched();
         this.vibrateDevice();
+        alert('Please fill required fields.');
       }
     }
     dateFormat(date?) {
@@ -139,7 +157,7 @@ export class MemberComponent implements OnInit {
   
     vibrateDevice(): void {
       if (navigator.vibrate) {
-        navigator.vibrate(200);  // Vibrate for 200 milliseconds
+        navigator.vibrate([200, 200]);  // Vibrate for 200 milliseconds
       }
     }
 

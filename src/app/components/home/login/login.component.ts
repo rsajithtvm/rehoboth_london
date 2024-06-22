@@ -97,7 +97,7 @@ export class LoginComponent implements OnInit {
     }
     vibrateDevice(): void {
       if (navigator.vibrate) {
-        navigator.vibrate(200);  // Vibrate for 200 milliseconds
+        navigator.vibrate([200, 200]);  // Vibrate for 200 milliseconds
       }
     }
 }

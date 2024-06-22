@@ -1,0 +1,19 @@
+<!-- response-modal.component.html -->
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Processing</h4>
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div *ngIf="!isSuccess">
+      <p>Please wait while we process your request...</p>
+    </div>
+    <div *ngIf="isSuccess">
+      <p>Success! Your request has been processed.</p>
+    </div>
+  </div>
+  <div class="modal-footer" *ngIf="isSuccess">
+    <button type="button" class="btn btn-primary" (click)="close()">Close</button>
+  </div>
+  

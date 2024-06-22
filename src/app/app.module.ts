@@ -20,6 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminDashboardComponent } from './components/home/admin-dashboard/admin-dashboard.component';
 import { MemberComponent } from './components/home/member/member.component';
 import { AdminService } from './services/admin.service';
+import { ResponseModalComponent } from './components/home/response-modal/response-modal.component';
 
 // export function HttpLoaderFactory(http: HttpClient){
 //   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,6 +33,7 @@ import { AdminService } from './services/admin.service';
     // SignUpComponent,
     AdminDashboardComponent,
     MemberComponent,
+    ResponseModalComponent
   ],
   imports: [
     BrowserAnimationsModule,

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { AdminService } from 'src/app/services/admin.service';
 import { MemberService } from 'src/app/services/member.service';
-
+import { forkJoin, pipe } from "rxjs";
+import { map, startWith } from "rxjs/operators";
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
@@ -11,13 +13,32 @@ export class AdminDashboardComponent implements OnInit {
   seatingPlan: any[][];
   success: boolean = false;
   memberList = [];
+  sortedData = [];
+  searchControl = new FormControl();
   constructor(public adminservice: AdminService, private memberservice: MemberService) { }
 
   ngOnInit(): void {
     this.memberservice.getMembers().subscribe(res => {
       debugger
       this.memberList = res;
+      this.sortedData = res;
     });
+    this.searchControl.valueChanges
+      .pipe(
+        startWith(""),
+        map((value) => {
+          return this._filter(value);
+        })
+      )
+      .subscribe((data) => {debugger
+        this.sortedData = data;
+      });
+  }
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.memberList.filter((option) =>
+      JSON.stringify(option).toLowerCase().includes(filterValue)
+    );
   }
 
   handleImageError(event: Event): void {

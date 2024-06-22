@@ -23,8 +23,17 @@
 
     <h2 class="hero-title text-center mb-4 pb-2" style="margin-bottom: 25px;">Member Details</h2>
     <div class="main">
+
+        <div class="col-lg-12 col-md-12 col-12" style="display: flex; justify-content: center;">
+            <div class="form-floating mb-4 p-0">
+                <input type="text"
+                    class="form-control" placeholder="Search"  [formControl]="searchControl">
+                <label for="referrer">Search ...</label>
+            </div>
+        </div>
+
         <ul class="cards">
-            <li class="cards_item" *ngFor="let user of memberList">
+            <li class="cards_item" *ngFor="let user of sortedData">
                 <div class="card">
                     <div class="card_image" style="display: flex; justify-content: center;">
                         <img [src]="user.avatar || 'assets/images/default-avatar.jpg'" alt="{{user.fname}}"

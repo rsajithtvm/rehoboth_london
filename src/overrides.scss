@@ -594,7 +594,7 @@ Bootstrap 5 Form Pack Template
   
   @media screen and (max-width: 480px) {
     .site-header .social-icon {
-      display: none !important;
+      // display: none !important;
     }
   
     .offcanvas-icon {
@@ -604,6 +604,7 @@ Bootstrap 5 Form Pack Template
     .countdown-item {
       margin: 10px;
     }
+    
   }
   
 .btn-section button{

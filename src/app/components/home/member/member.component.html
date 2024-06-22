@@ -114,8 +114,8 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-6 col-10 mx-auto submit-btn">
-                            <button class="form-control"  (click)="onSubmit()">Save</button>
+                        <div class="col-lg-6 col-10 mx-auto submit-btn" style="margin-bottom: 25px;">
+                            <button class="form-control" [disabled]="disable" (click)="onSubmit()">Save</button>
                         </div>
                     </form>
 
@@ -125,11 +125,31 @@
         </div>
     </div>
 
-    <div class="video-wrap">
+    <!-- <div class="video-wrap">
         <video autoplay="true" loop="true" muted="true" class="custom-video" poster="">
             <source src="../../../../assets/videos/video.mp4" type="video/mp4">
 
             Your browser does not support the video tag.
         </video>
-    </div>
+    </div> -->
+    <!-- <ng-template #demoModal let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="dateOfBirth">Date of birth</label>
+              <div class="input-group">
+                <input id="dateOfBirth" name="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" ngbDatepicker #dp="ngbDatepicker">
+                <button type="button" class="btn btn-outline-secondary bi bi-calendar" (click)="dp.toggle()"></button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" [disabled]="disable" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        </div>
+      </ng-template> -->
 </section>
