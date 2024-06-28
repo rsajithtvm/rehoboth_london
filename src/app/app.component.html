@@ -1,9 +1,9 @@
-<main>
-<app-header></app-header>
+<main class="main-wrapper d-flex flex-column" [ngClass]="{'h-100': currentUrl === '/login'}">
+<app-header *ngIf="!isLoginPage()"></app-header>
 <!-- <div>
     <h1> {{"HELLO" | translate}}</h1>
     <h2>Hola</h2>
 </div> -->
 <router-outlet></router-outlet>
-<!-- <app-footer></app-footer> -->
+<app-footer *ngIf="!isLoginPage()"></app-footer>
 </main>

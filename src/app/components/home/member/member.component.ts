@@ -69,7 +69,7 @@ export class MemberComponent implements OnInit {
 
     ngOnInit() {
       this.memberservice.getMembers().subscribe(res => {
-        debugger
+        //debugger
         this.memberList = res;
       });
       this.form = this.fb.group({

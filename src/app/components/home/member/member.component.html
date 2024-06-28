@@ -1,126 +1,125 @@
-<section class="hero-section d-flex justify-content-center">
-    <div class="container" [ngClass]="{submitted: submitted}">
-        <div class="row">
+<section class="registration-wrapper h-100">
+    <div class="container py-5 h-100 d-flex align-items-center justify-content-center" [ngClass]="{submitted: submitted}">
+        <div class="register-holder p-4 rounded-5">
+            <h2 class="hero-title text-center mb-4 pb-2">Registration Form</h2>
+            <div class="row">
+                <div class="col-lg-12 col-12 mx-auto">
+                    <div class="custom-form member-form">
+                        <form  [formGroup]="form" class="row">
+                            <!-- <button type="button" (click)="uploadImage(member)" class="btn btn-link btn-sm btn-rounded">
+                                <i class="fa fa-upload"></i>
+                            </button> -->
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-floating">
+                                    <input type="text" name="first-name" id="first-name" class="form-control"
+                                        placeholder="First Name" required formControlName="fname">
 
-            <div class="col-lg-6 col-12 mx-auto">
-                <div class="custom-form member-form">
-                    <h2 class="hero-title text-center mb-4 pb-2">Registration Form</h2>
-
-                    <form  [formGroup]="form" class="row">
-                        <!-- <button type="button" (click)="uploadImage(member)" class="btn btn-link btn-sm btn-rounded">
-                            <i class="fa fa-upload"></i>
-                          </button> -->
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="form-floating">
-                                <input type="text" name="first-name" id="first-name" class="form-control"
-                                    placeholder="First Name" required formControlName="fname">
-
-                                <label for="floatingInput">First Name *</label>
+                                    <label for="floatingInput">First Name *</label>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="form-floating">
-                                <input type="text" name="last-name" id="last-name" class="form-control"
-                                    placeholder="Last Name" formControlName="lname">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-floating">
+                                    <input type="text" name="last-name" id="last-name" class="form-control"
+                                        placeholder="Last Name" formControlName="lname">
 
-                                <label for="floatingInput">Last Name</label>
+                                    <label for="floatingInput">Last Name</label>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="form-floating mb-4 p-0">
-                                <input type="phone" name="phone" id="phone"
-                                    pattern="^(\+44\s?7\d{3}|\(?0\s?\d{4}\)?)\s?\d{3}\s?\d{3}$"
-                                    class="form-control" placeholder="Phone number" required formControlName="phone">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-floating mb-4 p-0">
+                                    <input type="phone" name="phone" id="phone"
+                                        pattern="^(\+44\s?7\d{3}|\(?0\s?\d{4}\)?)\s?\d{3}\s?\d{3}$"
+                                        class="form-control" placeholder="Phone number" required formControlName="phone">
 
-                                <label for="phone">Phone number *</label>
+                                    <label for="phone">Phone number *</label>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="form-floating mb-4 p-0">
-                                <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*"
-                                    class="form-control" placeholder="Email address" formControlName="email">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-floating mb-4 p-0">
+                                    <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*"
+                                        class="form-control" placeholder="Email address" formControlName="email">
 
-                                <label for="email">Email address</label>
+                                    <label for="email">Email address</label>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-md-6 col-12">
-                            <div class="form-floating mb-4 p-0">
-                                <!-- <label>How did you hear about us</label> -->
-                                <select class="form-control" id="from" formControlName="from">
-                                    <option value="" disabled selected>How did you hear about us</option>
-                                    <option value="Facebook">Facebook</option>
-                                    <option value="Instagram">Instagram</option>
-                                    <option value="Youtube">Youtube</option>
-                                    <option value="Friend">Friend</option>
-                                    <option value="Other">Other</option>
-                                </select>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-floating mb-4 p-0">
+                                    <!-- <label>How did you hear about us</label> -->
+                                    <select class="form-control" id="from" formControlName="from">
+                                        <option value="" disabled selected>How did you hear about us</option>
+                                        <option value="Facebook">Facebook</option>
+                                        <option value="Instagram">Instagram</option>
+                                        <option value="Youtube">Youtube</option>
+                                        <option value="Friend">Friend</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-6 col-md-6 col-12" *ngIf="form.get('from').value == 'Friend'">
-                            <div class="form-floating mb-4 p-0">
-                                <input type="text" name="referrer" id="referrer"
-                                    class="form-control" placeholder="Referrer Name" formControlName="referrer">
+                            <div class="col-lg-6 col-md-6 col-12" *ngIf="form.get('from').value == 'Friend'">
+                                <div class="form-floating mb-4 p-0">
+                                    <input type="text" name="referrer" id="referrer"
+                                        class="form-control" placeholder="Referrer Name" formControlName="referrer">
 
-                                <label for="referrer">Referrer Name</label>
+                                    <label for="referrer">Referrer Name</label>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-12 col-12" *ngIf="form.get('from').value == 'Other'">
-                            <div class="form-floating mb-4 p-0">
-                                <textarea type="text" name="details" id="details"
-                                    class="form-control" placeholder="Details" formControlName="details">
-                                </textarea>
+                            <div class="col-lg-12 col-12" *ngIf="form.get('from').value == 'Other'">
+                                <div class="form-floating mb-4 p-0">
+                                    <textarea type="text" name="details" id="details"
+                                        class="form-control" placeholder="Details" formControlName="details">
+                                    </textarea>
 
-                                <label for="details">Details</label>
+                                    <label for="details">Details</label>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-lg-12 col-12">
-                            <div class="form-floating">
-                                <textarea class="form-control" id="requests" name="requests"
-                                    placeholder="Prayer Requests" formControlName="requests"></textarea>
+                            <div class="col-lg-12 col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="requests" name="requests"
+                                        placeholder="Prayer Requests" formControlName="requests"></textarea>
 
-                                <label for="requests">Prayer Requests</label>
+                                    <label for="requests">Prayer Requests</label>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- <div class="col-lg-12 col-12">
-                            <div class="form-floating">
-                                <input class="form-control" type="date" id="joineddate" name="joineddate"
-                                    placeholder="Joined Date">
+                            <!-- <div class="col-lg-12 col-12">
+                                <div class="form-floating">
+                                    <input class="form-control" type="date" id="joineddate" name="joineddate"
+                                        placeholder="Joined Date">
 
-                                <label for="joineddate">Joined Date</label>
+                                    <label for="joineddate">Joined Date</label>
+                                </div>
+                            </div> -->
+
+                            <div class="col-lg-12 col-12" style="margin-bottom: 20px;">
+                                <div class="form-item  d-flex align-items-start">
+                                    <input type="checkbox" id="consent" name="consent" class="mt-1" formControlName="consent"
+                                        placeholder="Consent" >
+                                    <span for="consent" class="ms-2 lh-2">I hereby grant Rehoboth
+                                        permission to take photographs and videos of me during church events and
+                                        activities. I
+                                        understand that these images may be used on the church's social media
+                                        platforms, website, and promotional materials. I acknowledge that I will not
+                                        receive any compensation for the use of these images. I understand that I
+                                        can withdraw my consent at any time by contacting the church office in
+                                        writing.</span>
+                                </div>
                             </div>
-                        </div> -->
 
-                        <div class="col-lg-12 col-12" style="margin-bottom: 20px;">
-                            <div class="form-item">
-                                <input type="checkbox" id="consent" name="consent" formControlName="consent"
-                                    placeholder="Consent" style="width: 20px; height: 20px; cursor: pointer;">
-
-                                <span for="consent" style="margin-left: 10px;color: #fff;">I hereby grant Rehoboth
-                                    permission to take photographs and videos of me during church events and
-                                    activities. I
-                                    understand that these images may be used on the church's social media
-                                    platforms, website, and promotional materials. I acknowledge that I will not
-                                    receive any compensation for the use of these images. I understand that I
-                                    can withdraw my consent at any time by contacting the church office in
-                                    writing.</span>
+                            <div class="col-lg-12 col-10 mx-auto submit-btn" style="margin-bottom: 25px;">
+                                <button class="form-control" [disabled]="disable" (click)="onSubmit()">Save</button>
                             </div>
-                        </div>
+                        </form>
 
-                        <div class="col-lg-6 col-10 mx-auto submit-btn" style="margin-bottom: 25px;">
-                            <button class="form-control" [disabled]="disable" (click)="onSubmit()">Save</button>
-                        </div>
-                    </form>
+                    </div>
 
                 </div>
-
             </div>
         </div>
     </div>

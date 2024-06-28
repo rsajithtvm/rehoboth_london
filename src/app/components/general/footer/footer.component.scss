@@ -1,8 +1,9 @@
 @import "./../../../../variables.scss";
 
 footer{
+    font-size: 14px;
     color: $LightSlate;
-
+    background: var(--black);
     .footer-left-bar:after, .footer-right-bar:after{
         content: '';
         display: block;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2  } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { AdminService } from 'src/app/services/admin.service';
 import { MemberService } from 'src/app/services/member.service';
@@ -15,11 +15,11 @@ export class AdminDashboardComponent implements OnInit {
   memberList = [];
   sortedData = [];
   searchControl = new FormControl();
-  constructor(public adminservice: AdminService, private memberservice: MemberService) { }
+  constructor(public adminservice: AdminService, private memberservice: MemberService, private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.memberservice.getMembers().subscribe(res => {
-      debugger
+     // debugger
       this.memberList = res;
       this.sortedData = res;
     });
@@ -30,9 +30,14 @@ export class AdminDashboardComponent implements OnInit {
           return this._filter(value);
         })
       )
-      .subscribe((data) => {debugger
+      .subscribe((data) => {//debugger
         this.sortedData = data;
       });
+      this.addBodyClass();
+  }
+  addBodyClass(): void {
+    const body = this.renderer.selectRootElement('body', true);
+    this.renderer.addClass(body, 'dashboard');
   }
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();

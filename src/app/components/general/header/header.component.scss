@@ -1,4 +1,22 @@
 @import "./../../../../variables.scss";
+
+header  {
+    background: var(--black);
+    figure{
+        margin: 0;
+    }
+    img {
+        max-width: 50px;
+        width: 100%;
+    }
+    span {
+        font-size: 20px;
+        color: #FFF;
+        margin-left: 10px;
+        display: block;
+    }
+}
+
 .main-navbar {
     height: 70px;
     background: $Navy;

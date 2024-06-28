@@ -1,9 +1,9 @@
-<section class="hero-section d-flex justify-content-center">
-  <div class="container" style="display: flex; justify-content: center; align-items: center; width: 500px;" [ngClass]="{submitted: submitted}">
+<section class="login-wrapper h-100">
+  <div class="container py-5 h-100 d-flex align-items-center justify-content-center" [ngClass]="{submitted: submitted}">
       <div class="row">
 
           <div class="col-lg-12 col-12 mx-auto">
-              <div class="custom-form member-form">
+              <div class="custom-form member-form rounded-5 p-4">
                   <h2 class="hero-title text-center mb-4 pb-2">Admin Login</h2>
 
                   <form  [formGroup]="form" class="row">
@@ -25,7 +25,7 @@
                           </div>
                       </div>
 
-                      <div class="col-lg-6 col-10 mx-auto submit-btn" style="margin-top: 50px">
+                      <div class="col-12 col-lg-12  mx-auto submit-btn">
                           <button class="form-control"  (click)="onSubmit()">Save</button>
                       </div>
                   </form>

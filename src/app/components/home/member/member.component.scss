@@ -67,3 +67,20 @@
 //     opacity: .2;
 // }
 .submitted .form-control.ng-invalid{border:2px solid red;}
+
+
+.registration-wrapper {
+    .register-holder {
+        background-color: rgba(0,0,0, 0.5);
+        max-width: 680px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .form-item {
+        span {
+            font-size: 14px;
+            color: var(--bg-white);
+        }
+    }
+}
+
